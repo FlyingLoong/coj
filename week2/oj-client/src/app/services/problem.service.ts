@@ -30,7 +30,10 @@ export class ProblemService {
   addProblem(newProblem: Problem): Promise<Problem> {
     let headers = new Headers({"content-type": "application/json"});
     return this.http.post("api/v1/problems", newProblem, headers).toPromise()
-      .then ((res: Response) => res.json())
+      .then ((res: Response) => {
+        this.getProblems();
+        return res.json();
+      })
       .catch (this.handleError)
   }
 
