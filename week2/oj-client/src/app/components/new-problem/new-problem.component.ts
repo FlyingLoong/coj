@@ -19,9 +19,15 @@ export class NewProblemComponent implements OnInit {
 
   newProblem: Problem = Object.assign({}, DEFAULT_PROBLEM);
 
-  constructor() { }
+  constructor(@Inject("data") private data) { }
 
   ngOnInit() {
+  }
+
+  addProblem(): void {
+    this.data.addProblem(this.newProblem)
+      .catch ("Problem name already exists!");
+    this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
   }
 
 }

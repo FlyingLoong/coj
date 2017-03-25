@@ -1,11 +1,11 @@
 webpackJsonp([1,5],{
 
-/***/ 302:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(297);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProblemDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -28,7 +28,10 @@ var ProblemDetailComponent = (function () {
     }
     ProblemDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params.subscribe(function (params) { _this.problem = _this.data.getProblem(+params['id']); });
+        this.route.params.subscribe(function (params) {
+            _this.data.getProblem(+params['id'])
+                .then(function (problem) { _this.problem = problem; console.log(_this.problem); });
+        });
     };
     ProblemDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
@@ -46,7 +49,7 @@ var ProblemDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76,7 +79,6 @@ var ProblemListComponent = (function () {
     ProblemListComponent.prototype.getProblems = function () {
         var _this = this;
         this.subscriptionProblem = this.data.getProblems().subscribe(function (problems) { return _this.problems = problems; });
-        console.log(this.problems);
     };
     ProblemListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
@@ -93,7 +95,7 @@ var ProblemListComponent = (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 337:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -102,19 +104,19 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 335;
+webpackEmptyContext.id = 337;
 
 
 /***/ }),
 
-/***/ 336:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(427);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(464);
 
 
@@ -128,7 +130,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 457:
+/***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -162,21 +164,21 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 458:
+/***/ 459:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(417);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(423);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(457);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_problem_list_problem_list_component__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_problem_detail_problem_detail_component__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_problem_list_problem_list_component__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_problem_detail_problem_detail_component__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_problem_service__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_routes__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_new_problem_new_problem_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_routes__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_new_problem_new_problem_component__ = __webpack_require__(462);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -232,13 +234,13 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 459:
+/***/ 460:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_problem_detail_problem_detail_component__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_problem_list_problem_list_component__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_problem_detail_problem_detail_component__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_problem_list_problem_list_component__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(297);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
 
 
@@ -267,7 +269,7 @@ var routing = __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* RouterModule 
 
 /***/ }),
 
-/***/ 460:
+/***/ 461:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -302,7 +304,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 461:
+/***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -317,6 +319,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 var DEFAULT_PROBLEM = Object.freeze({
     id: 0,
@@ -325,19 +330,26 @@ var DEFAULT_PROBLEM = Object.freeze({
     difficulty: "Easy"
 });
 var NewProblemComponent = (function () {
-    function NewProblemComponent() {
+    function NewProblemComponent(data) {
+        this.data = data;
         this.Difficulties = ["Easy", "Medium", "Hard", "Super"];
         this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
     }
     NewProblemComponent.prototype.ngOnInit = function () {
+    };
+    NewProblemComponent.prototype.addProblem = function () {
+        this.data.addProblem(this.newProblem)
+            .catch("Problem name already exists!");
+        this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
     };
     NewProblemComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-new-problem',
             template: __webpack_require__(530),
             styles: [__webpack_require__(521)]
-        }), 
-        __metadata('design:paramtypes', [])
+        }),
+        __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* Inject */])("data")), 
+        __metadata('design:paramtypes', [Object])
     ], NewProblemComponent);
     return NewProblemComponent;
 }());
@@ -350,10 +362,10 @@ var NewProblemComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(423);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(536);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProblemService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -382,8 +394,13 @@ var ProblemService = (function () {
         return this.problemSource.asObservable();
     };
     ProblemService.prototype.getProblem = function (id) {
-        console.log(id);
         return this.http.get("api/v1/problems/" + id).toPromise()
+            .then(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    ProblemService.prototype.addProblem = function (newProblem) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ "content-type": "application/json" });
+        return this.http.post("api/v1/problems", newProblem, headers).toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.handleError);
     };
@@ -393,7 +410,7 @@ var ProblemService = (function () {
     };
     ProblemService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
     ], ProblemService);
     return ProblemService;
     var _a;
@@ -525,14 +542,14 @@ module.exports = "<div class=\"container\">\n    <nav class=\"navbar navbar-defa
 /***/ 530:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <form #formRef=\"ngForm\">\n        <div class=\"form-group\">\n            <label for=\"problemName\">Prlblem Name</label>\n            <input type=\"text\" class=\"form-control\" id=\"problemName\" name=\"problemName\" required placeholder=\"Enter the problem...\" [(ngModel)]=\"newProblem.name\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"problemDesc\">Prlblem Description</label>\n            <textarea row=\"3\" class=\"form-control\" id=\"problemDesc\" name=\"problemDesc\" required placeholder=\"Enter the problem description...\" [(ngModel)]=\"newProblem.desc\"></textarea>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"problemDifficulty\">Problem Difficulty</label>\n            <select class=\"form-control\" id=\"problemDifficulty\" name=\"problemDifficulty\" [(ngModel)]=\"newProblem.difficulty\">\n                <option *ngFor=\"let difficulty of Difficulties\" [value]=\"difficulty\">{{difficulty}}</option>\n            </select>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <button type=\"submit\" class=\"btn btn-primary pull-right\">Submit</button>\n            </div>\n        </div>\n    </form>\n    <br>\n</div>"
+module.exports = "<div>\n    <form #formRef=\"ngForm\">\n        <div class=\"form-group\">\n            <label for=\"problemName\">Prlblem Name</label>\n            <input type=\"text\" class=\"form-control\" id=\"problemName\" name=\"problemName\" required placeholder=\"Enter the problem...\" [(ngModel)]=\"newProblem.name\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"problemDesc\">Prlblem Description</label>\n            <textarea row=\"3\" class=\"form-control\" id=\"problemDesc\" name=\"problemDesc\" required placeholder=\"Enter the problem description...\" [(ngModel)]=\"newProblem.desc\"></textarea>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"problemDifficulty\">Problem Difficulty</label>\n            <select class=\"form-control\" id=\"problemDifficulty\" name=\"problemDifficulty\" [(ngModel)]=\"newProblem.difficulty\">\n                <option *ngFor=\"let difficulty of Difficulties\" [value]=\"difficulty\">{{difficulty}}</option>\n            </select>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <button type=\"submit\" class=\"btn btn-primary pull-right\" (click)=\"addProblem()\">Add Problem</button>\n            </div>\n        </div>\n    </form>\n    <br>\n</div>"
 
 /***/ }),
 
 /***/ 531:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <div class=\"col-xs-12 col-md-4\">\n        <div>\n            <h2>{{problem.id}}. {{problem.name}}</h2>\n            <hr>\n            <br/>>\n            <p>{{problem.desc}}</p>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"container\" *ngIf=\"problem\">\n    <div class=\"col-xs-12 col-md-4\">\n        <div>\n            <h2>{{problem.id}}. {{problem.name}}</h2>\n            <hr>\n            <br/>\n            <p>{{problem.desc}}</p>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -546,7 +563,7 @@ module.exports = "<div class=\"container\">\n    <app-new-problem></app-new-prob
 /***/ 552:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(336);
+module.exports = __webpack_require__(338);
 
 
 /***/ })

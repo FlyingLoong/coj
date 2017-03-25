@@ -22,10 +22,16 @@ export class ProblemService {
   }
 
   getProblem(id: number): Promise<Problem> {
-    console.log(id);
     return this.http.get(`api/v1/problems/${id}`).toPromise()
       .then((res: Response) => res.json())
       .catch(this.handleError)
+  }
+
+  addProblem(newProblem: Problem): Promise<Problem> {
+    let headers = new Headers({"content-type": "application/json"});
+    return this.http.post("api/v1/problems", newProblem, headers).toPromise()
+      .then ((res: Response) => res.json())
+      .catch (this.handleError)
   }
 
   private handleError(error: any): Promise<any> {
