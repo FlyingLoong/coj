@@ -46,13 +46,13 @@ export class AuthService {
     localStorage.removeItem("profile");
   }
 
-  public getProfile(): Object {
+  public getProfile() {
     return JSON.parse(localStorage.getItem("profile"));
   }
 
   public resetPassword(): void {
-    let profile = this.getProfile()
-    let url: string = `https//${this.domain}/dbconnections/change_password`;
+    let profile = this.getProfile();
+    let url: string = `https://${this.domain}/dbconnections/change_password`;
     let headers = new Headers({"content-type": "application/json"});
     let body = {
       client_id: this.clientId,
