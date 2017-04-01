@@ -32,21 +32,20 @@ module.exports = function(io) {
                     }
                 }
                 collaborations[sessionId]["participants"].push(socket.id);
-            })
+            });
         }
 
         socket.on("change", delta => {
-            let sessionId = socketIdToSessionId[socket.i];
-
-            forwardEvent(socket.id, "change", delta);
+            let sessionId = socketIdToSessionId[socket.id];
 
             if (sessionId in collaborations) {
                 collaborations[sessionId]["cachedChangeEvents"].push(["change", delta, Date().now]);
             }
+
+            forwardEvent(socket.id, "change", delta);
         });
 
         socket.on("cursorMove", cursor => {
-            console.log("get the event of cursor from client!");
             cursor = JSON.parse(cursor);
             cursor["socketId"] = socket.id;
 

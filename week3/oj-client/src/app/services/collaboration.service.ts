@@ -27,7 +27,6 @@ export class CollaborationService {
     });
 
     this.collaborationSocket.on("cursorMove", (cursor) => {
-      console.log("get the cursor move from server!");
       let session = editor.getSession();
       cursor = JSON.parse(cursor);
       let x = cursor["row"];

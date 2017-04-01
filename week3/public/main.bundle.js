@@ -729,7 +729,6 @@ var CollaborationService = (function () {
             editor.getSession().getDocument().applyDeltas([delta]);
         });
         this.collaborationSocket.on("cursorMove", function (cursor) {
-            console.log("get the cursor move from server!");
             var session = editor.getSession();
             cursor = JSON.parse(cursor);
             var x = cursor["row"];
