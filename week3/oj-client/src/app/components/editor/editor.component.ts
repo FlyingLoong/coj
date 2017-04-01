@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import { ActivatedRoute, Params } from '@angular/router';
 
 declare var ace: any;
 
@@ -11,22 +13,78 @@ export class EditorComponent implements OnInit {
 
   editor: any;
 
+  sessionId: string;
+
+  languages: string[] = ["Java", "C++", "Python"];
+
+  language: string = "Java";
+
   defaultContent = {
     "Java": `public class Example {
                 public static void main(String[] args) {
                 // Type your Java code here
                 }
-            }`
+            }`,
+    "C++": `#include <iostream>
+            using namespace std;
+    ​
+            int main() {
+              // Type your C++ code here
+              return 0;
+            }`,
+    'Python': `class Solution:
+              def example():
+                # Write your Python code here`
   };
 
-  constructor() { }
+  constructor(@Inject("collaboration") private collaboration,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.sessionId = params['id'];
+      this.initEditor();
+    })
+  }
+
+  initEditor(): void {
     this.editor = ace.edit("editor");
     this.editor.setTheme("ace/theme/eclipse");
-    this.editor.getSession().setMode('ace/mode/java');
-    this.editor.setValue(this.defaultContent['Java']);
+    this.resetEditor();
     this.editor.$blockScrolling = Infinity;
+
+    document.getElementsByTagName("textarea")[0].focus();
+
+    this.collaboration.init(this.editor, this.sessionId);
+    this.editor.lastAppliedChange = null;
+
+    this.editor.on('change', (e) => {
+      if (this.editor.lastAppliedChange != e) {
+        this.collaboration.change(JSON.stringify(e));
+      }
+    });
+
+    this.editor.getSession().getSelection().on('changeCursor', () => {
+      let cursor = this.editor.getSession().getSelection().getCursor();
+      this.collaboration.cursorMove(JSON.stringify(cursor));
+    });
+
+    this.collaboration.restoreBuffer();
+  }
+
+  setLanguage(language: any): void {
+    this.language = language;
+    this.resetEditor();
+  }
+
+  resetEditor(): void {
+    this.editor.getSession().setMode('ace/mode/' + this.language.toLowerCase());
+    this.editor.setValue(this.defaultContent[this.language]);
+  }
+
+  submit(): void {
+    let userCode = this.editor.getValue();
+    console.log (userCode);
   }
 
 }
