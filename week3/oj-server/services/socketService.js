@@ -54,9 +54,7 @@ module.exports = function(io) {
 
         socket.on("restoreBuffer", () => {
             let sessionId = socketIdToSessionId[socket.id];
-            console.log("Get the restore event from client!");
             if (sessionId in collaborations) {
-                console.log("The sessionId is in collaborations!");
                 let changeEvents = collaborations[sessionId]["cachedChangeEvents"];
                 for (let i = 0; i < changeEvents.length; i++) {
                     console.log("The changeEvent is %s", changeEvents[i][0]);

@@ -4,7 +4,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuardService } from './services/auth-guard.service';
+//import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
-    canActivate: [AuthGuardService]
+    canActivate: ['authGuard']
   },
   {
     path: "**",
