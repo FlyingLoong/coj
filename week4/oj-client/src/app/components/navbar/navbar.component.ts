@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   }
 
   searchProblem(): void {
-    console.log("searchProblem is called!");
+    //console.log("searchProblem is called!");
     this.router.navigate(["/problems"]);
   }
 
@@ -41,7 +41,6 @@ export class NavbarComponent implements OnInit {
     this.auth.login()
       .then(profile => this.username = profile.nickname)
       .catch (error => console.log(error))
-    //this.username = this.auth.getProfile().nickname;
   }
 
   logout(): void{

@@ -444,7 +444,7 @@ var EditorComponent = (function () {
         var userCode = this.editor.getValue();
         var data = {
             user_code: userCode,
-            lang: this.language
+            lang: this.language.toLowerCase()
         };
         this.data.buildAndRun(data)
             .then(function (res) { return _this.output = res.text; });
@@ -513,7 +513,7 @@ var NavbarComponent = (function () {
         this.subscription.unsubscribe();
     };
     NavbarComponent.prototype.searchProblem = function () {
-        console.log("searchProblem is called!");
+        //console.log("searchProblem is called!");
         this.router.navigate(["/problems"]);
     };
     NavbarComponent.prototype.login = function () {
@@ -521,7 +521,6 @@ var NavbarComponent = (function () {
         this.auth.login()
             .then(function (profile) { return _this.username = profile.nickname; })
             .catch(function (error) { return console.log(error); });
-        //this.username = this.auth.getProfile().nickname;
     };
     NavbarComponent.prototype.logout = function () {
         this.auth.logout();
@@ -939,9 +938,13 @@ var ProblemService = (function () {
             .catch(this.handleError);
     };
     ProblemService.prototype.addProblem = function (newProblem) {
+        var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]({ "content-type": "application/json" });
         return this.http.post("api/v1/problems", newProblem, headers).toPromise()
-            .then(function (res) { return res.json(); })
+            .then(function (res) {
+            _this.getProblems();
+            return res.json();
+        })
             .catch(this.handleError);
     };
     ProblemService.prototype.buildAndRun = function (data) {

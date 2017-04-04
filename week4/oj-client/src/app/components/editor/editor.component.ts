@@ -90,7 +90,7 @@ export class EditorComponent implements OnInit {
     let userCode = this.editor.getValue();
     let data = {
       user_code: userCode,
-      lang: this.language
+      lang: this.language.toLowerCase()
     };
     this.data.buildAndRun(data)
               .then(res => this.output = res.text);
